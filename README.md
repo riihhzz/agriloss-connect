@@ -200,4 +200,4 @@ Semua akun memakai password **`Demo12345`**.
 - AI: Google Gemini API.
 - Library open source: Next.js, React, Tailwind CSS, Supabase JS, react-leaflet, qrcode.react (lihat `package.json`).
 - Maskot, logo, dan desain UI: karya tim Agriloss.Connect.
-- Penulisan kode dibantu asisten AI (Claude, Anthropic, Chat GPT); ide, desain, dan pengujian dilakukan oleh tim.
+- Penulisan kode dibantu asisten AI (Claude, ChatGPT, dan GitHub Copilot/Autopilot di VS Code); ide, desain, dan pengujian sepenuhnya dilakukan oleh tim.
