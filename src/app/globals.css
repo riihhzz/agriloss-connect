@@ -1,0 +1,191 @@
+@import "tailwindcss";
+
+/* Token warna diambil dari desain Figma Agriloss.Connect */
+@theme {
+  --color-leaf-50: #f4f9ee;
+  --color-leaf-100: #eaf3df;
+  --color-leaf-200: #d5e8c2;
+  --color-leaf-300: #bed8af;
+  --color-leaf-400: #8cc06a;
+  --color-leaf-500: #559933;
+  --color-leaf-600: #3f8a2c;
+  --color-leaf-700: #1f6f2a;
+  --color-leaf-800: #1a5a24;
+  --color-leaf-900: #1c3a2e;
+
+  --color-lime: #c8f55a;
+  --color-lime-soft: #e2fba0;
+  --color-sun: #f79b29;
+  --color-sun-soft: #fff4dc;
+  --color-field: #e7e9e4;
+  --color-ink: #111111;
+
+  --font-sans: var(--font-lexend), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-field: 0 2px 2px rgb(0 0 0 / 0.18);
+  --shadow-card: 0 10px 30px -12px rgb(31 111 42 / 0.35);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-leaf-100);
+  color: var(--color-ink);
+}
+
+/* Latar gradasi hijau khas desain: terang di atas, hijau tua di bawah */
+.bg-agri {
+  background:
+    radial-gradient(circle at 0 0, transparent 0 150px, rgb(31 111 42 / 0.28) 151px 300px, transparent 301px) no-repeat,
+    linear-gradient(180deg, var(--color-leaf-100) 0%, var(--color-leaf-100) 45%, var(--color-leaf-300) 75%, var(--color-leaf-500) 100%);
+}
+
+.bg-agri-ring {
+  background:
+    radial-gradient(circle at 0 0, transparent 0 150px, rgb(31 111 42 / 0.28) 151px 300px, transparent 301px) no-repeat,
+    var(--color-leaf-100);
+}
+
+/* Kartu produk: putih transparan ke lime (seperti desain katalog) */
+.card-lime {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.55) 0%, rgb(255 255 255 / 0.4) 55%, var(--color-lime) 100%);
+}
+
+.card-glass {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.75) 0%, rgb(255 255 255 / 0.35) 100%);
+  backdrop-filter: blur(6px);
+}
+
+@keyframes confirm-pop {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===== Maskot animasi (lapisan PNG 600×800) ===== */
+.mascot-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.mascot-body {
+  transform-origin: 50% 95%;
+  animation: mascot-bob 3.2s ease-in-out infinite, mascot-sway 3.4s ease-in-out infinite;
+}
+.mascot-head {
+  transform-origin: 58% 58%;
+  animation: mascot-tilt 6s ease-in-out infinite;
+}
+.mascot-arm {
+  transform-origin: 43% 63%;
+  animation: mascot-wave 3.4s infinite;
+}
+.mascot-leaf {
+  transform-origin: 61% 20%;
+  animation: mascot-leaf 2.4s ease-in-out infinite;
+}
+.mascot-eyes-open {
+  animation: mascot-blink-open 4.5s infinite;
+}
+.mascot-eyes-closed {
+  opacity: 0;
+  animation: mascot-blink-closed 4.5s infinite;
+}
+.mascot:hover .mascot-arm,
+.mascot:hover .mascot-body {
+  animation-duration: 3.2s, 1.9s;
+}
+.mascot:hover .mascot-arm {
+  animation-duration: 1.9s;
+}
+.mascot:hover .mascot-eyes-open {
+  animation: none;
+  opacity: 0;
+}
+.mascot:hover .mascot-eyes-closed {
+  animation: none;
+  opacity: 1;
+}
+
+@keyframes mascot-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2.5%); }
+}
+@keyframes mascot-tilt {
+  0%, 100% { rotate: 0deg; }
+  50% { rotate: -2deg; }
+}
+/* Lambaian alami: angkat, ayun kiri-kanan makin kecil, lalu turun dan jeda sejenak.
+   Tiap ruas punya kurva sendiri supaya gerak melambat di ujung ayunan (tidak kaku). */
+@keyframes mascot-wave {
+  0%   { rotate: 0deg;   scale: 1;         animation-timing-function: cubic-bezier(0.3, 0, 0.2, 1); }
+  9%   { rotate: -13deg; scale: 1.03 1.02; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  20%  { rotate: 6deg;   scale: 0.99 1;    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  31%  { rotate: -11deg; scale: 1.02 1.01; animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  42%  { rotate: 5deg;   scale: 0.99 1;    animation-timing-function: cubic-bezier(0.45, 0, 0.55, 1); }
+  52%  { rotate: -7deg;  scale: 1.01;      animation-timing-function: cubic-bezier(0.4, 0, 0.3, 1); }
+  63%  { rotate: 1.5deg; scale: 1;         animation-timing-function: ease-out; }
+  70%, 100% { rotate: 0deg; scale: 1; }
+}
+/* Badan ikut condong tipis mengikuti lambaian */
+@keyframes mascot-sway {
+  0%, 70%, 100% { rotate: 0deg; }
+  9%, 31% { rotate: -1.2deg; }
+  20%, 42% { rotate: 0.8deg; }
+  52% { rotate: -0.6deg; }
+}
+@keyframes mascot-leaf {
+  0%, 100% { rotate: -5deg; }
+  50% { rotate: 8deg; }
+}
+@keyframes mascot-blink-open {
+  0%, 90%, 100% { opacity: 1; }
+  92%, 96% { opacity: 0; }
+}
+@keyframes mascot-blink-closed {
+  0%, 90%, 100% { opacity: 0; }
+  92%, 96% { opacity: 1; }
+}
+
+/* Statistik naik saat muncul */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Leaflet: pastikan kontrol tidak menutupi navbar */
+.leaflet-container {
+  z-index: 0;
+  font-family: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dropdown: panah sendiri dengan jarak yang pas dari tepi (panah bawaan browser menempel ke tepi) */
+select.select-chevron {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231c3a2e' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  background-size: 16px;
+  padding-right: 2.9rem;
+}
