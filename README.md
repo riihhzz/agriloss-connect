@@ -18,11 +18,11 @@ Kajian Bappenas (2021) memperkirakan Indonesia kehilangan 23–48 juta ton panga
 
 Agriloss.Connect menyediakan:
 
-| Peran | Yang bisa dilakukan |
-|---|---|
-| **Petani** | Menawarkan hasil panen (foto kondisi, jenis buah, kematangan, jumlah, harga jual, harga pasar pembanding, perkiraan masa layak), mengecek kondisi buah dengan AI, chat dengan UMKM, memantau progres penawaran, dan melihat laporan pendapatan |
-| **UMKM** | Mencari bahan baku (urut terdekat, paling hemat, atau paling mendesak), bertanya ke petani lewat chat, menerima penawaran, mencatat pembayaran, mengelola stok bahan baku dan katalog produk olahan, membuat QR katalog, dan melihat laporan pengeluaran |
-| **Publik** | Melihat statistik dampak, daftar UMKM mitra beserta lokasinya, dan katalog produk olahan dengan filter kategori, buah, harga, dan UMKM |
+| Peran      | Yang bisa dilakukan                                                                                                                                                                                                                                      |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Petani** | Menawarkan hasil panen (foto kondisi, jenis buah, kematangan, jumlah, harga jual, harga pasar pembanding, perkiraan masa layak), mengecek kondisi buah dengan AI, chat dengan UMKM, memantau progres penawaran, dan melihat laporan pendapatan           |
+| **UMKM**   | Mencari bahan baku (urut terdekat, paling hemat, atau paling mendesak), bertanya ke petani lewat chat, menerima penawaran, mencatat pembayaran, mengelola stok bahan baku dan katalog produk olahan, membuat QR katalog, dan melihat laporan pengeluaran |
+| **Publik** | Melihat statistik dampak, daftar UMKM mitra beserta lokasinya, dan katalog produk olahan dengan filter kategori, buah, harga, dan UMKM                                                                                                                   |
 
 Semua komunikasi dan transaksi berlangsung **di dalam web**, tanpa aplikasi lain.
 
@@ -35,8 +35,8 @@ Semua komunikasi dan transaksi berlangsung **di dalam web**, tanpa aplikasi lain
 - **Laporan keuangan.** Petani melihat pendapatan, UMKM melihat pengeluaran dan biaya layanan, lengkap dengan ringkasan bulanan dan tombol cetak/simpan PDF.
 - **Chat real-time.** Petani dan UMKM berdiskusi per penawaran, dengan status terkirim/dibaca (Supabase Realtime).
 - **AI (Google Gemini).**
-  - *Cek Kondisi Buah*: petani mengunggah foto, AI memperkirakan jenis buah, kematangan, masa layak, dan saran olahan.
-  - *Si Jeruk*: asisten yang menjawab pertanyaan pengguna dan mencari data nyata di platform (produk, penawaran, stok) sesuai hak akses pengguna.
+  - _Cek Kondisi Buah_: petani mengunggah foto, AI memperkirakan jenis buah, kematangan, masa layak, dan saran olahan.
+  - _Si Jeruk_: asisten yang menjawab pertanyaan pengguna dan mencari data nyata di platform (produk, penawaran, stok) sesuai hak akses pengguna.
 - **Lokasi.** Pengguna menentukan titik lokasi lewat GPS atau menggeser pin di peta. Jarak petani ke UMKM dihitung otomatis.
 
 ### Alur penawaran
@@ -67,15 +67,15 @@ Petani juga dapat **menarik** penawaran yang belum diterima. Setiap perubahan st
 
 ## Teknologi
 
-| Bagian | Teknologi |
-|---|---|
-| Framework | [Next.js 16](https://nextjs.org) (App Router, Server Components, Server Actions) + React 19 + TypeScript |
-| Styling | Tailwind CSS v4, font Lexend (Google Fonts) |
-| Backend & Database | [Supabase](https://supabase.com): PostgreSQL, Auth, Storage, Realtime, Row Level Security, fungsi RPC |
-| AI | Google Gemini API (analisis foto dengan keluaran terstruktur, asisten dengan *function calling*) |
-| Peta | Leaflet + react-leaflet dengan tile & geocoding **OpenStreetMap** (Nominatim), Geolocation API browser |
-| QR Code | qrcode.react |
-| Deploy | Vercel |
+| Bagian             | Teknologi                                                                                                |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
+| Framework          | [Next.js 16](https://nextjs.org) (App Router, Server Components, Server Actions) + React 19 + TypeScript |
+| Styling            | Tailwind CSS v4, font Lexend (Google Fonts)                                                              |
+| Backend & Database | [Supabase](https://supabase.com): PostgreSQL, Auth, Storage, Realtime, Row Level Security, fungsi RPC    |
+| AI                 | Google Gemini API (analisis foto dengan keluaran terstruktur, asisten dengan _function calling_)         |
+| Peta               | Leaflet + react-leaflet dengan tile & geocoding **OpenStreetMap** (Nominatim), Geolocation API browser   |
+| QR Code            | qrcode.react                                                                                             |
+| Deploy             | Vercel                                                                                                   |
 
 Desain UI/UX dibuat tim di Figma (high fidelity) dan Balsamiq (low fidelity). Maskot dan logo adalah karya orisinal tim.
 
@@ -167,20 +167,20 @@ npm run dev        # http://localhost:3000
 Perintah lain: `npm run build` (build produksi) dan `npm run lint` (cek kualitas kode).
 
 > **Catatan Supabase:** agar pendaftaran langsung bisa dipakai tanpa verifikasi email, matikan
-> *Authentication → Sign In / Providers → Email → Confirm email*.
+> _Authentication → Sign In / Providers → Email → Confirm email_.
 
 ### Akun Demo
 
 Semua akun memakai password **`Demo12345`**.
 
-| Peran | Email | Nama |
-|---|---|---|
-| Petani | `cecep@agriloss.demo` | Cecep Nurjaman (Ciwidey) |
-| Petani | `ujang@agriloss.demo` | Ujang Supriatna (Lembang) |
-| Petani | `siti@agriloss.demo` | Siti Aminah (Garut) |
-| UMKM | `tiriz@agriloss.demo` | Tiriz.Co (Jatinangor) |
-| UMKM | `esan@agriloss.demo` | Esan (Cipadung) |
-| UMKM | `sariburah@agriloss.demo` | Sari Buah Lembang |
+| Peran  | Email                     | Nama                      |
+| ------ | ------------------------- | ------------------------- |
+| Petani | `cecep@agriloss.demo`     | Cecep Nurjaman (Ciwidey)  |
+| Petani | `ujang@agriloss.demo`     | Ujang Supriatna (Lembang) |
+| Petani | `siti@agriloss.demo`      | Siti Aminah (Garut)       |
+| UMKM   | `tiriz@agriloss.demo`     | Mr.Manggo (Jatinangor)    |
+| UMKM   | `esan@agriloss.demo`      | Mom Juice (Cipadung)      |
+| UMKM   | `sariburah@agriloss.demo` | Sweet Bliss (Lembang)     |
 
 ---
 
@@ -195,7 +195,7 @@ Semua akun memakai password **`Demo12345`**.
 
 ## Sumber & Atribusi
 
-- Data food loss: Bappenas, *Laporan Kajian Food Loss and Waste di Indonesia* (2021).
+- Data food loss: Bappenas, _Laporan Kajian Food Loss and Waste di Indonesia_ (2021).
 - Peta & geocoding: © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors, [Leaflet](https://leafletjs.com).
 - AI: Google Gemini API.
 - Library open source: Next.js, React, Tailwind CSS, Supabase JS, react-leaflet, qrcode.react (lihat `package.json`).
